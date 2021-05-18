@@ -61,7 +61,6 @@ class WeatherViewController: UIViewController {
                 mainStackView.isHidden = false
                 greetingStackView.isHidden = true
                 errorStackView.isHidden = true
-                print("work")
             } else {
                 mainStackView.isHidden = true
                 greetingStackView.isHidden = true
