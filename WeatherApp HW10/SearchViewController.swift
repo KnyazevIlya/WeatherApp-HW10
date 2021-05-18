@@ -12,6 +12,7 @@ class SearchViewController: UIViewController {
     @IBOutlet var searchField: UITextField!
     @IBOutlet var suggestionsTableView: UITableView!
     
+    var delegate: coordinatesDelegate?
     var locations = [Location]()
     
     override func viewDidLoad() {
@@ -60,7 +61,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coords = locations[indexPath.row].coordinates
         print(coords ?? "err occured")
+        delegate?.setCoords(latitude: Double(coords?.latitude ?? 0), longtitude: Double(coords?.longitude ?? 0))
         suggestionsTableView.isHidden = true
+        self.dismiss(animated: true, completion: nil)
     }
-
 }

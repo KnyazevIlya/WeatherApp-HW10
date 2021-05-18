@@ -20,9 +20,10 @@ class LocationManageer: NSObject {
         let geoCoder = CLGeocoder()
         
         geoCoder.geocodeAddressString(query) {
-            places, error in guard let places = places, error == nil else{
+            places, error in guard let places = places, error == nil else {
                 completion([])
                 return }
+            
             let models: [Location] = places.compactMap({
                 var name = ""
                 if let locationName = $0.name {
@@ -31,14 +32,12 @@ class LocationManageer: NSObject {
                 if let adminRegion = $0.administrativeArea {
                     name += ", \(adminRegion)"
                 }
-                if let locality = $0.locality {
-                    name += ", \(locality)"
-                }
                 if let country = $0.country {
                     name += ", \(country)"
                 }
                 
-                print("\n\n\($0)")
+                //debug setting
+                //print("\n\n\($0)")
                 
                 let result = Location(
                     title: name,
