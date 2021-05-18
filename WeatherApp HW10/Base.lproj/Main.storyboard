@@ -17,14 +17,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VZ8-ut-V8s">
-                                <rect key="frame" x="184" y="433" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="137.5" y="776" width="139" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Set Location 📍">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="Tgi-d2-XIZ" kind="show" identifier="search" id="zqm-Tz-Nku"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="Dft-Il-gHW" userLabel="Greeting">
+                                <rect key="frame" x="30" y="194" width="354" height="117"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HELLO ☀️" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ea-PM-iBp">
+                                        <rect key="frame" x="0.0" y="0.0" width="204.5" height="55"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="46"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set the location to get current weather there ⬇️" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xr0-rX-ZQV">
+                                        <rect key="frame" x="0.0" y="76" width="341.5" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="vV5-X0-0iR" userLabel="Main">
-                                <rect key="frame" x="30" y="104" width="354" height="195.5"/>
+                                <rect key="frame" x="30" y="164" width="354" height="195.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kyiv, Kyiv, Ukraine" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5W-BC-ygR" userLabel="Location name">
                                         <rect key="frame" x="0.0" y="0.0" width="354" height="38.5"/>
@@ -104,18 +124,43 @@
                                     <constraint firstItem="a5W-BC-ygR" firstAttribute="leading" secondItem="vV5-X0-0iR" secondAttribute="leading" id="rNX-h9-VFW"/>
                                 </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="xjF-mR-xBe" userLabel="Error">
+                                <rect key="frame" x="30" y="194" width="354" height="77.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Error 🌩" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qrf-JP-RVn">
+                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="55"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="46"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Try to choose the location again or try later." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve1-eO-2Tp">
+                                        <rect key="frame" x="0.0" y="57" width="329" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vV5-X0-0iR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="60" id="ORa-pz-fDT"/>
-                            <constraint firstItem="VZ8-ut-V8s" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="WH7-Dk-CMU"/>
+                            <constraint firstAttribute="trailing" secondItem="Dft-Il-gHW" secondAttribute="trailing" constant="30" id="HEz-yc-Ec5"/>
+                            <constraint firstAttribute="trailing" secondItem="xjF-mR-xBe" secondAttribute="trailing" constant="30" id="HzM-gw-lpM"/>
+                            <constraint firstItem="Dft-Il-gHW" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="Mps-dD-Kbz"/>
+                            <constraint firstItem="vV5-X0-0iR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="ORa-pz-fDT"/>
+                            <constraint firstItem="xjF-mR-xBe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="WUb-t1-Seo"/>
+                            <constraint firstItem="VZ8-ut-V8s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WYR-os-VjL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vV5-X0-0iR" secondAttribute="trailing" constant="30" id="WZI-PQ-Vrs"/>
-                            <constraint firstItem="VZ8-ut-V8s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cUG-Vm-xOr"/>
+                            <constraint firstItem="Dft-Il-gHW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="hWl-fW-CX8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VZ8-ut-V8s" secondAttribute="bottom" constant="50" id="sHO-DG-YPG"/>
+                            <constraint firstItem="xjF-mR-xBe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="tsA-Dz-6UM"/>
                             <constraint firstItem="vV5-X0-0iR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="vTf-oa-gsi"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="errorStackView" destination="xjF-mR-xBe" id="J1m-5T-cib"/>
+                        <outlet property="greetingStackView" destination="Dft-Il-gHW" id="fe8-yr-WdC"/>
                         <outlet property="locationLatCoord" destination="e0y-4j-iue" id="wwD-k8-Ij7"/>
                         <outlet property="locationLonCoord" destination="KUU-UL-FJM" id="gsI-49-z9O"/>
                         <outlet property="locationNameLabel" destination="a5W-BC-ygR" id="s8o-Zh-Wvx"/>

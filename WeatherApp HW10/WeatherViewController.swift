@@ -13,6 +13,8 @@ class WeatherViewController: UIViewController {
 
     //MARK: - Outlets
     @IBOutlet var mainStackView: UIStackView!
+    @IBOutlet var greetingStackView: UIStackView!
+    @IBOutlet var errorStackView: UIStackView!
     
     @IBOutlet var locationNameLabel: UILabel!
     @IBOutlet var locationLatCoord: UILabel!
@@ -36,7 +38,9 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        greetingStackView.isHidden = false
         mainStackView.isHidden = true
+        errorStackView.isHidden = true
     }
     
     //MARK: - private methods
@@ -50,12 +54,18 @@ class WeatherViewController: UIViewController {
                 
                 wEmoji.text = condEmoji(id: data?.weather[0].id ?? 200).emoji
                 wDescription.text = data?.weather[0].description
-                wTemp.text = "🌡 \((data?.main.temp)!)℃ feels like \(( data?.main.feels_like)!)"
+                wTemp.text = "🌡 \((data?.main.temp)!)℃"
                 wWind.text = "💨 \((data?.wind.speed)!) km/h \((data?.wind.deg)!)°"
                 wHumidity.text = "humidity \((data?.main.humidity)!)%"
                 wClouds.text = "☁️ \((data?.clouds.all)!)%"
                 mainStackView.isHidden = false
+                greetingStackView.isHidden = true
+                errorStackView.isHidden = true
                 print("work")
+            } else {
+                mainStackView.isHidden = true
+                greetingStackView.isHidden = true
+                errorStackView.isHidden = false
             }
         }
     }
