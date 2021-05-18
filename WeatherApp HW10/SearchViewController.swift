@@ -61,7 +61,9 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coords = locations[indexPath.row].coordinates
         print(coords ?? "err occured")
-        delegate?.setCoords(latitude: Double(coords?.latitude ?? 0), longtitude: Double(coords?.longitude ?? 0))
+        delegate?.setCoords(latitude: Double(coords?.latitude ?? 0),
+                            longtitude: Double(coords?.longitude ?? 0),
+                            name: locations[indexPath.row].title)
         suggestionsTableView.isHidden = true
         self.dismiss(animated: true, completion: nil)
     }
