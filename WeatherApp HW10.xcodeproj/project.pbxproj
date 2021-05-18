@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BC3DF2122652C91800264F25 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DF2112652C91800264F25 /* LocationManager.swift */; };
 		BC3DF2192652D42000264F25 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DF2182652D42000264F25 /* SearchViewController.swift */; };
-		BC3DF21D265303EF00264F25 /* Requester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DF21C265303EF00264F25 /* Requester.swift */; };
 		BC3DF22026530EC400264F25 /* WeatherModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DF21F26530EC400264F25 /* WeatherModel.swift */; };
 		BC3DF2232653D15E00264F25 /* WeatherConditionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3DF2222653D15E00264F25 /* WeatherConditionModel.swift */; };
 		BCAB62262652BE9000BA41F2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCAB62252652BE9000BA41F2 /* AppDelegate.swift */; };
@@ -23,7 +22,6 @@
 /* Begin PBXFileReference section */
 		BC3DF2112652C91800264F25 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		BC3DF2182652D42000264F25 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		BC3DF21C265303EF00264F25 /* Requester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requester.swift; sourceTree = "<group>"; };
 		BC3DF21F26530EC400264F25 /* WeatherModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherModel.swift; sourceTree = "<group>"; };
 		BC3DF2222653D15E00264F25 /* WeatherConditionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherConditionModel.swift; sourceTree = "<group>"; };
 		BCAB62222652BE9000BA41F2 /* WeatherApp HW10.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WeatherApp HW10.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,6 +45,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC3DF2262654026C00264F25 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BC3DF21F26530EC400264F25 /* WeatherModel.swift */,
+				BC3DF2222653D15E00264F25 /* WeatherConditionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BC3DF2272654028A00264F25 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BCAB62292652BE9000BA41F2 /* WeatherViewController.swift */,
+				BC3DF2182652D42000264F25 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BC3DF229265402B300264F25 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BCAB62272652BE9000BA41F2 /* SceneDelegate.swift */,
+				BCAB622B2652BE9000BA41F2 /* Main.storyboard */,
+				BCAB62302652BE9100BA41F2 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BC3DF22B265403E600264F25 /* Supportive files */ = {
+			isa = PBXGroup;
+			children = (
+				BCAB62332652BE9100BA41F2 /* Info.plist */,
+				BCAB62252652BE9000BA41F2 /* AppDelegate.swift */,
+			);
+			path = "Supportive files";
+			sourceTree = "<group>";
+		};
+		BC3DF22C265403F600264F25 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BCAB622E2652BE9100BA41F2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BC3DF22D2654047100264F25 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BC3DF2112652C91800264F25 /* LocationManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		BCAB62192652BE9000BA41F2 = {
 			isa = PBXGroup;
 			children = (
@@ -66,18 +117,12 @@
 		BCAB62242652BE9000BA41F2 /* WeatherApp HW10 */ = {
 			isa = PBXGroup;
 			children = (
-				BCAB62252652BE9000BA41F2 /* AppDelegate.swift */,
-				BCAB62272652BE9000BA41F2 /* SceneDelegate.swift */,
-				BCAB62292652BE9000BA41F2 /* WeatherViewController.swift */,
-				BCAB622B2652BE9000BA41F2 /* Main.storyboard */,
-				BCAB622E2652BE9100BA41F2 /* Assets.xcassets */,
-				BCAB62302652BE9100BA41F2 /* LaunchScreen.storyboard */,
-				BCAB62332652BE9100BA41F2 /* Info.plist */,
-				BC3DF2112652C91800264F25 /* LocationManager.swift */,
-				BC3DF2182652D42000264F25 /* SearchViewController.swift */,
-				BC3DF21C265303EF00264F25 /* Requester.swift */,
-				BC3DF21F26530EC400264F25 /* WeatherModel.swift */,
-				BC3DF2222653D15E00264F25 /* WeatherConditionModel.swift */,
+				BC3DF22D2654047100264F25 /* Helpers */,
+				BC3DF22C265403F600264F25 /* Resources */,
+				BC3DF22B265403E600264F25 /* Supportive files */,
+				BC3DF229265402B300264F25 /* View */,
+				BC3DF2272654028A00264F25 /* Controller */,
+				BC3DF2262654026C00264F25 /* Model */,
 			);
 			path = "WeatherApp HW10";
 			sourceTree = "<group>";
@@ -155,7 +200,6 @@
 				BC3DF22026530EC400264F25 /* WeatherModel.swift in Sources */,
 				BC3DF2192652D42000264F25 /* SearchViewController.swift in Sources */,
 				BC3DF2122652C91800264F25 /* LocationManager.swift in Sources */,
-				BC3DF21D265303EF00264F25 /* Requester.swift in Sources */,
 				BCAB622A2652BE9000BA41F2 /* WeatherViewController.swift in Sources */,
 				BCAB62262652BE9000BA41F2 /* AppDelegate.swift in Sources */,
 				BC3DF2232653D15E00264F25 /* WeatherConditionModel.swift in Sources */,

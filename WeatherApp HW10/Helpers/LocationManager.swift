@@ -24,28 +24,27 @@ class LocationManageer: NSObject {
                 completion([])
                 return }
             
-            let models: [Location] = places.compactMap({
+            var models = [Location]()
+            
+            for place in places {
                 var name = ""
-                if let locationName = $0.name {
+                if let locationName = place.name {
                     name += locationName
                 }
-                if let adminRegion = $0.administrativeArea {
+                if let adminRegion = place.administrativeArea {
                     name += ", \(adminRegion)"
                 }
-                if let country = $0.country {
+                if let country = place.country {
                     name += ", \(country)"
                 }
                 
-                //debug setting
-                //print("\n\n\($0)")
-                
                 let result = Location(
                     title: name,
-                    coordinates: $0.location?.coordinate
+                    coordinates: place.location?.coordinate
                 )
                 
-                return result
-            })
+                models.append(result)
+            }
             completion(models)
         }
     }
