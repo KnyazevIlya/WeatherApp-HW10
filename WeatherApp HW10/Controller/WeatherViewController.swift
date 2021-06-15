@@ -69,6 +69,15 @@ class WeatherViewController: UIViewController {
         }
     }
     
+    //shows a alert with given title and description
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
+    //MARK: - fatch data
     //as the request is completed returns decoded data or nil
     private func makeRequest(completion: @escaping (WeatherJSON?) -> ()) {
         let session = URLSession.shared
@@ -87,14 +96,24 @@ class WeatherViewController: UIViewController {
             }
         }.resume()
     }
-
+    
+    //MARK: - navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "search" {
             let searchVC = segue.destination as! SearchViewController
             searchVC.delegate = self
+        } else if segue.identifier == "Forecast" {
+            let resultVC = segue.destination as! ForecastTableViewController
+            resultVC.fetchData(with: coords)
         }
     }
-
+    @IBAction func onClickForecast() {
+        if (coords.lat == 0 && coords.lon == 0) {
+            showAlert(title: "Caution!", message: "Pick location first.")
+        } else {
+            performSegue(withIdentifier: "Forecast", sender: self)
+        }
+    }
 }
 
 extension WeatherViewController: coordinatesDelegate {
