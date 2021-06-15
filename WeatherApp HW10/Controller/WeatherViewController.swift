@@ -27,6 +27,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet var wHumidity: UILabel!
     @IBOutlet var wClouds: UILabel!
     
+    //MARK: - properties
+    
+    //private properties
+    private var workingData: SavedWorkingData?
+    
     //public properties
     var locationName: String = ""
     
@@ -35,12 +40,38 @@ class WeatherViewController: UIViewController {
     private var coords = Coordinates(lat: 0, lon: 0)
     private let APPID = "e5677da1f646cf09b93949c3be118943"
     
+    //MARK: - life cycle
+    //hide navbar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         greetingStackView.isHidden = false
         mainStackView.isHidden = true
         errorStackView.isHidden = true
+        
+        workingData = StorageManager.shared.getWorkingDataFromFile()
+        if workingData != nil {
+            coords.lat = workingData!.lat
+            coords.lon = workingData!.lon
+            locationName = workingData!.locationName
+            
+            makeRequest() {data in
+                if let data = data {
+                    self.data = data
+                    self.updateWeather(with: data)
+                }
+            }
+        }
     }
     
     //MARK: - private methods
@@ -121,6 +152,8 @@ extension WeatherViewController: coordinatesDelegate {
         coords.lat = latitude
         coords.lon = longtitude
         locationName = name
+        workingData = SavedWorkingData(lat: latitude, lon: longtitude, locationName: name)
+        StorageManager.shared.saveWorkingDataToPlist(workingData!)
         makeRequest() {data in
             if let data = data {
                 self.data = data

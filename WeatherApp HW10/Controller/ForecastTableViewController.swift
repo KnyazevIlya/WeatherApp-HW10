@@ -14,16 +14,6 @@ class ForecastTableViewController: UITableViewController {
     private let APPID = "e5677da1f646cf09b93949c3be118943"
     private var forecastData = [DailyForecast]()
     
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
     
     //MARK: - private methods
     private func getDateFromNow(byAdding days: Int) -> String{
